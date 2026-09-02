@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درس المشاهد الحضرية | الأستاذ رياض سليمي | سابعة أساسي</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Tajawal','sans-serif'], serif: ['Amiri','serif'] },
+      colors: {
+        sand: '#f7f3ec',
+        ink: '#12253b',
+        brand: { 50:'#eef6ff',100:'#d9ebff',200:'#bcdcff',300:'#8ec5ff',400:'#59a4ff',500:'#3182f6',600:'#1d63dd',700:'#194fb4',800:'#1a448f',900:'#1b3c73' },
+        clay: { 400:'#e08a4b', 500:'#d2762f', 600:'#b25f22' }
+      },
+      keyframes: {
+        floaty: { '0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'} },
+        fadeUp: { '0%':{opacity:0,transform:'translateY(28px)'},'100%':{opacity:1,transform:'translateY(0)'} },
+        shine: { '0%':{backgroundPosition:'0% 50%'},'100%':{backgroundPosition:'200% 50%'} }
+      },
+      animation: { floaty:'floaty 6s ease-in-out infinite', fadeUp:'fadeUp .7s ease forwards', shine:'shine 6s linear infinite' }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body { background: #f7f3ec; color:#12253b; }
+  .grain::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.07;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .reveal { opacity:0; transform:translateY(28px); transition: all .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.show { opacity:1; transform:none; }
+  .glass { background: rgba(255,255,255,.72); backdrop-filter: blur(12px); }
+  .title-underline{ position:relative; display:inline-block; }
+  .title-underline::after{
+    content:""; position:absolute; right:0; bottom:-10px; height:6px; width:100%;
+    background:linear-gradient(90deg,#3182f6,#d2762f); border-radius:99px;
+  }
+  .card-hover{ transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s; }
+  .card-hover:hover{ transform: translateY(-6px); box-shadow: 0 22px 45px -18px rgba(18,37,59,.35); }
+  table.lesson { border-collapse: separate; border-spacing:0; }
+  table.lesson th, table.lesson td { border-bottom:1px solid rgba(18,37,59,.10); }
+  table.lesson tbody tr:hover { background: #eef6ff; }
+  .zone { cursor:pointer; transition: opacity .25s, transform .25s; transform-origin:center; }
+  .zone:hover { opacity:.85; }
+  .zone.active { filter: drop-shadow(0 0 10px rgba(49,130,246,.85)); }
+  .kbd { font-family: 'Tajawal'; background:#12253b; color:#fff; padding:2px 8px; border-radius:6px; font-size:12px; }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  details[open] .chev { transform: rotate(90deg); }
+  .chev { transition: transform .3s; }
+  .quiz-opt { transition: all .2s; }
+  .quiz-opt:hover { background:#eef6ff; border-color:#8ec5ff; }
+  .quiz-opt.correct { background:#dcfce7; border-color:#16a34a; }
+  .quiz-opt.wrong { background:#fee2e2; border-color:#dc2626; }
+  .bar { transition: width 1.4s cubic-bezier(.16,1,.3,1); }
+  .ribbon{ background:linear-gradient(100deg,#1b3c73,#1d63dd,#d2762f,#1b3c73); background-size:200% 100%; }
+  ::-webkit-scrollbar{ width:10px; height:10px }
+  ::-webkit-scrollbar-thumb{ background:#1b3c73; border-radius:99px }
+  ::-webkit-scrollbar-track{ background:#e6ddcf }
+  @media print {
+    nav, .no-print { display:none !important; }
+    body{ background:#fff }
+    .reveal{ opacity:1 !important; transform:none !important }
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="fixed top-0 inset-x-0 z-50 glass border-b border-ink/10 shadow-sm no-print">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="#top" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl ribbon animate-shine grid place-items-center text-white font-black shadow-lg">ج</div>
+        <div class="leading-tight">
+          <p class="font-extrabold text-ink text-sm sm:text-base">المشاهد الحضريّة</p>
+          <p class="text-[11px] text-ink/60">جغرافيا ـ سابعة أساسي</p>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-1 text-sm font-medium">
+        <a href="#objectifs" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">الأهداف</a>
+        <a href="#mafahim" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">المفاهيم</a>
+        <a href="#muqadima" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">المقدّمة</a>
+        <a href="#houston" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">هيوستن</a>
+        <a href="#lagos" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">لاغوس</a>
+        <a href="#muqarana" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">المقارنة</a>
+        <a href="#khatima" class="px-3 py-2 rounded-lg hover:bg-brand-50 hover:text-brand-700 transition">الخاتمة</a>
+        <a href="#anshita" class="px-4 py-2 mr-2 rounded-lg bg-ink text-white hover:bg-brand-700 transition shadow">الأنشطة المهاريّة</a>
+      </div>
+      <button id="burger" class="lg:hidden w-10 h-10 grid place-items-center rounded-lg border border-ink/15">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-ink/10 bg-white/95 px-4 py-3 grid grid-cols-2 gap-2 text-sm font-medium">
+    <a href="#objectifs" class="px-3 py-2 rounded-lg bg-sand">الأهداف</a>
+    <a href="#mafahim" class="px-3 py-2 rounded-lg bg-sand">المفاهيم</a>
+    <a href="#muqadima" class="px-3 py-2 rounded-lg bg-sand">المقدّمة والإشكاليّة</a>
+    <a href="#houston" class="px-3 py-2 rounded-lg bg-sand">هيوستن</a>
+    <a href="#lagos" class="px-3 py-2 rounded-lg bg-sand">لاغوس</a>
+    <a href="#muqarana" class="px-3 py-2 rounded-lg bg-sand">المقارنة</a>
+    <a href="#khatima" class="px-3 py-2 rounded-lg bg-sand">الخاتمة</a>
+    <a href="#anshita" class="px-3 py-2 rounded-lg bg-ink text-white">الأنشطة</a>
+  </div>
+  <div class="h-1 bg-ink/5"><div id="progressBar" class="h-1 ribbon animate-shine w-0"></div></div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top" class="relative overflow-hidden pt-28 pb-20 grain bg-gradient-to-bl from-brand-900 via-brand-800 to-ink text-white">
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-clay-500/30 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-[28rem] h-[28rem] bg-brand-500/20 rounded-full blur-3xl"></div>
+  <!-- skyline -->
+  <svg class="absolute bottom-0 inset-x-0 w-full h-40 opacity-25" viewBox="0 0 1200 160" preserveAspectRatio="none">
+    <g fill="#ffffff">
+      <rect x="20" y="80" width="40" height="80"/><rect x="70" y="50" width="30" height="110"/>
+      <rect x="110" y="95" width="55" height="65"/><rect x="175" y="30" width="34" height="130"/>
+      <rect x="220" y="70" width="46" height="90"/><rect x="280" y="100" width="60" height="60"/>
+      <rect x="350" y="20" width="28" height="140"/><rect x="390" y="60" width="42" height="100"/>
+      <rect x="445" y="88" width="52" height="72"/><rect x="510" y="40" width="30" height="120"/>
+      <rect x="552" y="75" width="48" height="85"/><rect x="612" y="105" width="66" height="55"/>
+      <rect x="690" y="35" width="32" height="125"/><rect x="734" y="72" width="44" height="88"/>
+      <rect x="790" y="98" width="58" height="62"/><rect x="860" y="45" width="30" height="115"/>
+      <rect x="900" y="82" width="50" height="78"/><rect x="962" y="108" width="70" height="52"/>
+      <rect x="1044" y="55" width="34" height="105"/><rect x="1090" y="90" width="60" height="70"/>
+    </g>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-wrap items-center gap-2 mb-6">
+      <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm">الجمهوريّة التونسيّة ـ وزارة التربية</span>
+      <span class="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm">مادّة الجغرافيا</span>
+      <span class="px-3 py-1 rounded-full bg-clay-500/90 text-xs sm:text-sm font-bold">السنة الدراسيّة 2026 / 2027</span>
+    </div>
+    <p class="text-brand-200 font-medium mb-3 tracking-wide">المحور: مشاهد حضريّة ومشاهد ريفيّة</p>
+    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-5">
+      الــمَـشـاهِـد الــحَـضَـريّـة
+    </h1>
+    <p class="max-w-2xl text-white/80 text-base sm:text-lg leading-relaxed mb-8">
+      دراسة مقارنة لمشهدين حضريّين: <span class="text-clay-400 font-bold">مدينة هيوستن</span> بالولايات المتحدة الأمريكيّة نموذجًا لمدن العالم المتقدّم،
+      و<span class="text-clay-400 font-bold">مدينة لاغوس</span> بنيجيريا نموذجًا لمدن العالم النامي.
+    </p>
+    <div class="flex flex-wrap gap-4 mb-10">
+      <a href="#muqadima" class="px-6 py-3 rounded-xl bg-white text-ink font-bold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition">ابدأ الدّرس</a>
+      <a href="#anshita" class="px-6 py-3 rounded-xl border border-white/40 hover:bg-white/10 font-bold transition">الأنشطة المهاريّة</a>
+      <button onclick="window.print()" class="no-print px-6 py-3 rounded-xl border border-white/40 hover:bg-white/10 font-bold transition">🖨️ طباعة الدّرس</button>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-4 max-w-3xl">
+      <div class="rounded-2xl bg-white/10 border border-white/15 p-4 backdrop-blur">
+        <p class="text-xs text-white/60 mb-1">إعداد الأستاذ</p>
+        <p class="font-extrabold text-lg">ريـاض سـلـيـمـي</p>
+      </div>
+      <div class="rounded-2xl bg-white/10 border border-white/15 p-4 backdrop-blur">
+        <p class="text-xs text-white/60 mb-1">المستوى</p>
+        <p class="font-extrabold text-lg">السّابعة أساسي</p>
+      </div>
+      <div class="rounded-2xl bg-white/10 border border-white/15 p-4 backdrop-blur">
+        <p class="text-xs text-white/60 mb-1">الحصّة</p>
+        <p class="font-extrabold text-lg">ساعة واحدة</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-5 sm:px-8">
+
+<!-- ================= OBJECTIFS ================= -->
+<section id="objectifs" class="py-16 sm:py-24">
+  <div class="reveal">
+    <p class="text-clay-600 font-bold mb-2">01 ـ التخطيط البيداغوجي</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline mb-12">أهــداف الــدّرس</h2>
+  </div>
+  <div class="grid md:grid-cols-3 gap-6">
+    <!-- معرفية -->
+    <div class="reveal card-hover rounded-3xl bg-white p-7 shadow-lg border-t-4 border-brand-600">
+      <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-700 grid place-items-center mb-5 text-2xl">🧠</div>
+      <h3 class="font-extrabold text-xl mb-4">الأهداف المعرفيّة</h3>
+      <ul class="space-y-3 text-sm leading-relaxed text-ink/80">
+        <li class="flex gap-2"><span class="text-brand-600 font-bold">✦</span> أن يتعرّف المتعلّم على مفهوم المشهد الحضري ومكوّناته.</li>
+        <li class="flex gap-2"><span class="text-brand-600 font-bold">✦</span> أن يميّز بين مشهد حضري بالعالم المتقدّم (هيوستن) ومشهد حضري بالعالم النامي (لاغوس).</li>
+        <li class="flex gap-2"><span class="text-brand-600 font-bold">✦</span> أن يحدّد موقع المدينة ووظائف مختلف أحيائها.</li>
+        <li class="flex gap-2"><span class="text-brand-600 font-bold">✦</span> أن يفسّر العلاقة بين مكوّنات المدينة ومستوى التجهيزات.</li>
+        <li class="flex gap-2"><span class="text-brand-600 font-bold">✦</span> أن يستنتج مشاكل التمدّن في العالم النامي.</li>
+      </ul>
+    </div>
+    <!-- مهارية -->
+    <div class="reveal card-hover rounded-3xl bg-white p-7 shadow-lg border-t-4 border-clay-500" style="transition-delay:.12s">
+      <div class="w-14 h-14 rounded-2xl bg-orange-50 text-clay-600 grid place-items-center mb-5 text-2xl">🛠️</div>
+      <h3 class="font-extrabold text-xl mb-4">الأهداف المهاريّة</h3>
+      <ul class="space-y-3 text-sm leading-relaxed text-ink/80">
+        <li class="flex gap-2"><span class="text-clay-500 font-bold">✦</span> قراءة صورة جويّة أو مشهد حضري واستخراج مكوّناته.</li>
+        <li class="flex gap-2"><span class="text-clay-500 font-bold">✦</span> إنجاز رسم تخطيطي مبسّط لمدينة مع وضع المفتاح.</li>
+        <li class="flex gap-2"><span class="text-clay-500 font-bold">✦</span> ملء جدول (المكوّن / الخصائص المعماريّة / الوظيفة).</li>
+        <li class="flex gap-2"><span class="text-clay-500 font-bold">✦</span> توطين مدينتَي هيوستن ولاغوس على خريطة العالم.</li>
+        <li class="flex gap-2"><span class="text-clay-500 font-bold">✦</span> المقارنة بين مشهدين وصياغة استنتاج مركّب.</li>
+      </ul>
+    </div>
+    <!-- سلوكية -->
+    <div class="reveal card-hover rounded-3xl bg-white p-7 shadow-lg border-t-4 border-emerald-600" style="transition-delay:.24s">
+      <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 grid place-items-center mb-5 text-2xl">🌍</div>
+      <h3 class="font-extrabold text-xl mb-4">الأهداف السلوكيّة (القيم)</h3>
+      <ul class="space-y-3 text-sm leading-relaxed text-ink/80">
+        <li class="flex gap-2"><span class="text-emerald-600 font-bold">✦</span> التحسيس بأهميّة احترام المرافق العامّة والمحافظة عليها.</li>
+        <li class="flex gap-2"><span class="text-emerald-600 font-bold">✦</span> نبذ كلّ أشكال التمييز والإقصاء الاجتماعي والمجالي.</li>
+        <li class="flex gap-2"><span class="text-emerald-600 font-bold">✦</span> التضامن مع سكّان الأحياء الفقيرة والوعي بحقّهم في السكن اللائق.</li>
+        <li class="flex gap-2"><span class="text-emerald-600 font-bold">✦</span> ترسيخ ثقافة النظافة والسلوك المدني داخل المدينة.</li>
+        <li class="flex gap-2"><span class="text-emerald-600 font-bold">✦</span> تنمية روح العمل الجماعي أثناء الأنشطة.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAFAHIM ================= -->
+<section id="mafahim" class="py-12 sm:py-20">
+  <div class="reveal">
+    <p class="text-clay-600 font-bold mb-2">02 ـ المعجم الجغرافي</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline mb-4">شــرح الــمَـفـاهــيــم</h2>
+    <p class="text-ink/60 mb-10 text-sm">انقر على البطاقة لقلبها والاطّلاع على التعريف.</p>
+  </div>
+  <div id="conceptGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+</section>
+
+<!-- ================= MUQADIMA ================= -->
+<section id="muqadima" class="py-12 sm:py-20">
+  <div class="reveal relative rounded-[2rem] overflow-hidden bg-gradient-to-l from-ink to-brand-900 text-white p-8 sm:p-12 shadow-2xl grain">
+    <div class="absolute -bottom-20 -left-16 w-72 h-72 rounded-full bg-clay-500/25 blur-3xl"></div>
+    <p class="text-brand-200 font-bold mb-2">03</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">الــمُــقــدّمــة والإشـكـالـيّـة</h2>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="space-y-4 leading-loose text-white/85 text-[15px] sm:text-base">
+        <p>
+          يعيش اليوم أكثر من <span class="font-bold text-clay-400">نصف سكّان العالم</span> في المدن، بعد أن تسارعت حركة التمدّن خلال القرن العشرين.
+          غير أنّ المدينة ليست واحدة في كلّ مكان: فهي تختلف في مظهرها وتنظيمها ووظائفها من العالم المتقدّم إلى العالم النامي.
+        </p>
+        <p>
+          فالمشهد الحضري هو صورة المدينة كما تبدو للعين: مبانٍ ناطحة للسحاب أو مساكن من الصفيح، شوارع واسعة وطرقات سريعة أو أزقّة ضيّقة مكتظّة،
+          أحياء أعمال نابضة بالحياة أو أحياء منسيّة تفتقر لأبسط التجهيزات.
+        </p>
+        <p class="font-bold text-white">وانطلاقًا من هذا التباين نطرح الإشكاليّة التالية:</p>
+      </div>
+      <div class="rounded-2xl bg-white/10 border border-white/20 backdrop-blur p-6 sm:p-8 space-y-5">
+        <div class="flex gap-3 items-start">
+          <span class="shrink-0 w-8 h-8 rounded-lg bg-clay-500 grid place-items-center font-black">؟</span>
+          <p class="font-bold leading-relaxed">ما هي مكوّنات المشهد الحضري في العالم المتقدّم وفي العالم النامي؟</p>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="shrink-0 w-8 h-8 rounded-lg bg-clay-500 grid place-items-center font-black">؟</span>
+          <p class="font-bold leading-relaxed">ما طبيعة العلاقة القائمة بين هذه المكوّنات ومستوى التجهيزات في كلّ حالة؟</p>
+        </div>
+        <div class="flex gap-3 items-start">
+          <span class="shrink-0 w-8 h-8 rounded-lg bg-clay-500 grid place-items-center font-black">؟</span>
+          <p class="font-bold leading-relaxed">وفيمَ تختلف مدينة هيوستن عن مدينة لاغوس؟ وما دلالة هذا الاختلاف؟</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOUSTON ================= -->
+<section id="houston" class="py-12 sm:py-20">
+  <div class="reveal flex flex-wrap items-end justify-between gap-4 mb-10">
+    <div>
+      <p class="text-clay-600 font-bold mb-2">العنصر الأوّل</p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline">مشهد حضري من العالم المتقدّم: مدينة هيوستن الأمريكيّة</h2>
+    </div>
+    <span class="px-4 py-2 rounded-xl bg-brand-600 text-white font-bold shadow-lg">🇺🇸 الولايات المتّحدة الأمريكيّة</span>
+  </div>
+
+  <!-- 1. Location -->
+  <div class="reveal grid lg:grid-cols-5 gap-6 mb-10">
+    <div class="lg:col-span-2 rounded-3xl bg-white p-7 shadow-lg">
+      <h3 class="font-extrabold text-xl mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-brand-600 text-white grid place-items-center text-sm">1</span> الموقـع</h3>
+      <ul class="space-y-3 text-sm leading-relaxed text-ink/80">
+        <li>🧭 تقع في <b>جنوب الولايات المتّحدة الأمريكيّة</b>، بولاية <b>تكساس</b>.</li>
+        <li>🌊 على السّهل السّاحلي القريب من <b>خليج المكسيك</b> (ميناء هيوستن).</li>
+        <li>📍 حوالي <b>30° شمالاً</b> و<b>95° غربًا</b>.</li>
+        <li>👥 رابع أكبر مدينة أمريكيّة بأكثر من <b>2.3 مليون ساكن</b> (نحو 7 ملايين بالمجال الحضري الكبير).</li>
+        <li>⚙️ موقع استراتيجي جعلها قطبًا <b>للبترول والطاقة والفضاء (ناسا) والطبّ</b>.</li>
+      </ul>
+      <div class="mt-5 p-4 rounded-2xl bg-brand-50 border-r-4 border-brand-600 text-sm">
+        <b>ملاحظة:</b> الموقع السّاحلي + الطرقات السريعة + الميناء = مدينة منفتحة على العالم.
+      </div>
+    </div>
+    <div class="lg:col-span-3 rounded-3xl bg-white p-4 sm:p-6 shadow-lg">
+      <svg viewBox="0 0 620 340" class="w-full h-auto">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec5ff"/><stop offset="1" stop-color="#1d63dd"/></linearGradient>
+        </defs>
+        <rect width="620" height="340" fill="#eef6ff" rx="18"/>
+        <!-- USA shape simplified -->
+        <path d="M60 70 L300 55 L420 60 L520 95 L540 150 L500 200 L430 240 L360 250 L300 275 L230 250 L150 235 L90 190 Z" fill="#dcefdc" stroke="#8fbf8f" stroke-width="2"/>
+        <path d="M300 275 L360 250 L430 240 L500 200 L540 150 L560 220 L470 300 L360 310 Z" fill="url(#sea)" opacity=".8"/>
+        <text x="500" y="290" text-anchor="middle" font-size="13" fill="#fff" font-family="Tajawal" font-weight="700">خليج المكسيك</text>
+        <text x="220" y="150" text-anchor="middle" font-size="15" fill="#4a7a4a" font-family="Tajawal" font-weight="700">الولايات المتّحدة الأمريكيّة</text>
+        <text x="330" y="215" text-anchor="middle" font-size="12" fill="#6b8f6b" font-family="Tajawal">ولاية تكساس</text>
+        <circle cx="372" cy="243" r="9" fill="#d2762f" class="animate-floaty"/>
+        <circle cx="372" cy="243" r="17" fill="none" stroke="#d2762f" stroke-width="2" opacity=".55"/>
+        <line x1="372" y1="243" x2="450" y2="180" stroke="#12253b" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <rect x="440" y="152" width="120" height="32" rx="8" fill="#12253b"/>
+        <text x="500" y="173" text-anchor="middle" font-size="14" fill="#fff" font-family="Tajawal" font-weight="700">هيوستن Houston</text>
+        <!-- compass -->
+        <g transform="translate(70,290)">
+          <circle r="22" fill="#fff" stroke="#12253b" stroke-width="1.5"/>
+          <path d="M0,-16 L5,4 L0,0 L-5,4 Z" fill="#d2762f"/>
+          <text y="-24" text-anchor="middle" font-size="10" font-family="Tajawal" font-weight="700" fill="#12253b">ش</text>
+        </g>
+      </svg>
+      <p class="text-center text-xs text-ink/50 mt-2">وثيقة 1: توطين مدينة هيوستن على السّهل الساحلي لخليج المكسيك.</p>
+    </div>
+  </div>
+
+  <!-- 2. Interactive components diagram -->
+  <div class="reveal rounded-3xl bg-white p-6 sm:p-8 shadow-lg mb-10">
+    <h3 class="font-extrabold text-xl mb-2 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-brand-600 text-white grid place-items-center text-sm">2</span> المكوّنات ـ رسم تخطيطي تفاعلي</h3>
+    <p class="text-sm text-ink/60 mb-6">مرّر أو انقر على أحد مكوّنات الرّسم لتظهر خصائصه في البطاقة الجانبيّة.</p>
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 rounded-2xl bg-sand p-3">
+        <svg viewBox="0 0 640 460" class="w-full h-auto">
+          <rect width="640" height="460" fill="#f7f3ec" rx="14"/>
+          <!-- outer suburbs ring -->
+          <circle cx="320" cy="230" r="205" fill="#e5f2e3" stroke="#a9c9a4" stroke-width="2" stroke-dasharray="6 5" class="zone" data-city="h" data-key="suburbs"/>
+          <!-- middle ring -->
+          <circle cx="320" cy="230" r="135" fill="#fde8d3" stroke="#e0a774" stroke-width="2" class="zone" data-city="h" data-key="minority"/>
+          <!-- CBD -->
+          <circle cx="320" cy="230" r="66" fill="#1d63dd" class="zone" data-city="h" data-key="cbd"/>
+          <!-- highways -->
+          <g stroke="#12253b" stroke-width="5" opacity=".55" stroke-linecap="round">
+            <line x1="320" y1="25" x2="320" y2="435"/>
+            <line x1="115" y1="230" x2="525" y2="230"/>
+            <line x1="175" y1="85" x2="465" y2="375"/>
+            <line x1="465" y1="85" x2="175" y2="375"/>
+          </g>
+          <circle cx="320" cy="230" r="135" fill="none" stroke="#12253b" stroke-width="6" opacity=".35" stroke-dasharray="14 8"/>
+          <circle cx="320" cy="230" r="205" fill="none" stroke="#12253b" stroke-width="6" opacity=".25" stroke-dasharray="14 8"/>
+          <!-- CBD towers -->
+          <g fill="#ffffff" opacity=".95">
+            <rect x="298" y="192" width="14" height="60" rx="2"/><rect x="316" y="178" width="12" height="74" rx="2"/>
+            <rect x="332" y="200" width="15" height="52" rx="2"/><rect x="283" y="212" width="12" height="40" rx="2"/>
+          </g>
+          <text x="320" y="272" text-anchor="middle" font-size="14" fill="#fff" font-family="Tajawal" font-weight="800">حيّ الأعمال CBD</text>
+          <text x="320" y="130" text-anchor="middle" font-size="13" fill="#b25f22" font-family="Tajawal" font-weight="700">أحياء الأقليّات والعمّال</text>
+          <text x="320" y="60" text-anchor="middle" font-size="13" fill="#4a7a4a" font-family="Tajawal" font-weight="700">ضواحي الطبقات الغنيّة</text>
+          <!-- port -->
+          <g class="zone" data-city="h" data-key="port">
+            <rect x="470" y="330" width="120" height="54" rx="10" fill="#3182f6" opacity=".85"/>
+            <text x="530" y="362" text-anchor="middle" font-size="13" fill="#fff" font-family="Tajawal" font-weight="700">الميناء والصّناعة</text>
+          </g>
+          <!-- airport -->
+          <g class="zone" data-city="h" data-key="airport">
+            <rect x="50" y="60" width="120" height="50" rx="10" fill="#6b7280" opacity=".85"/>
+            <text x="110" y="90" text-anchor="middle" font-size="13" fill="#fff" font-family="Tajawal" font-weight="700">✈ المطار</text>
+          </g>
+          <!-- legend -->
+          <g font-family="Tajawal" font-size="12" fill="#12253b">
+            <rect x="30" y="380" width="16" height="12" fill="#1d63dd"/><text x="55" y="391">حيّ الأعمال</text>
+            <rect x="30" y="402" width="16" height="12" fill="#fde8d3" stroke="#e0a774"/><text x="55" y="413">أحياء الأقليّات</text>
+            <rect x="180" y="380" width="16" height="12" fill="#e5f2e3" stroke="#a9c9a4"/><text x="205" y="391">الضّواحي الغنيّة</text>
+            <line x1="180" y1="408" x2="196" y2="408" stroke="#12253b" stroke-width="4"/><text x="205" y="413">طرقات سريعة</text>
+          </g>
+        </svg>
+      </div>
+      <div id="hPanel" class="rounded-2xl bg-gradient-to-b from-brand-900 to-ink text-white p-6 shadow-xl min-h-[260px] flex flex-col justify-center">
+        <p class="text-brand-200 text-sm mb-2">بطاقة المكوّن</p>
+        <h4 class="text-2xl font-extrabold mb-3">حيّ الأعمال (Downtown)</h4>
+        <p class="text-white/80 text-sm leading-relaxed">اختر مكوّنًا من الرّسم لعرض خصائصه المعماريّة ووظيفته.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="reveal rounded-3xl bg-white shadow-lg overflow-hidden mb-10">
+    <div class="p-6 sm:p-7 border-b border-ink/10 bg-gradient-to-l from-brand-50 to-white">
+      <h3 class="font-extrabold text-xl">جدول: مكوّنات مدينة هيوستن ـ الخصائص المعماريّة ـ الوظيفة</h3>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="lesson w-full text-sm min-w-[720px]">
+        <thead class="bg-ink text-white">
+          <tr>
+            <th class="p-4 text-right font-bold">المكوّن</th>
+            <th class="p-4 text-right font-bold">الموقع داخل المدينة</th>
+            <th class="p-4 text-right font-bold">الخصائص المعماريّة</th>
+            <th class="p-4 text-right font-bold">الوظيفة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-4 font-bold text-brand-800">حيّ الأعمال<br><span class="text-xs font-normal text-ink/50">Central Business District</span></td>
+            <td class="p-4">في <b>قلب المدينة</b> (المركز)</td>
+            <td class="p-4">ناطحات سحاب زجاجيّة شاهقة، بناء عمودي كثيف، شوارع واسعة مستقيمة، مواقف سيّارات متعدّدة الطوابق.</td>
+            <td class="p-4">وظيفة <b>اقتصاديّة وماليّة وإداريّة</b>: البنوك، البورصة، مقرّات شركات البترول، الإدارات الكبرى، التجارة الراقية.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-clay-600">أحياء الأقليّات<br><span class="text-xs font-normal text-ink/50">العمّال والموظّفون</span></td>
+            <td class="p-4">حزام <b>محيط بحيّ الأعمال</b></td>
+            <td class="p-4">مساكن فرديّة أو عمارات قديمة متواضعة، كثافة سكنيّة مرتفعة، تجهيزات متوسّطة، قرب المناطق الصّناعيّة.</td>
+            <td class="p-4">وظيفة <b>سكنيّة</b> لليد العاملة (أقليّات من أصول إفريقيّة ولاتينيّة وآسيويّة) وخدمات جوارية.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-emerald-700">ضواحي الطبقات الغنيّة</td>
+            <td class="p-4">في <b>أطراف المدينة</b> البعيدة</td>
+            <td class="p-4">فيلات (بناء أفقي) وسط مساحات خضراء، مسابح وملاعب غولف، مراكز تجاريّة كبرى (Malls)، هدوء وجودة بيئة.</td>
+            <td class="p-4">وظيفة <b>سكنيّة راقية وترفيهيّة</b> للطبقات الميسورة مع خدمات عالية الجودة.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-brand-700">الميناء والمنطقة الصّناعيّة</td>
+            <td class="p-4">شرق المدينة نحو خليج المكسيك</td>
+            <td class="p-4">مصافي بترول، صهاريج، أرصفة ومستودعات، سكك حديديّة.</td>
+            <td class="p-4">وظيفة <b>صناعيّة وتجاريّة وتصديريّة</b>.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-ink/70">التجهيزات الكبرى</td>
+            <td class="p-4">موزّعة على كامل المجال</td>
+            <td class="p-4">مطارات دوليّة، طرقات سريعة وحلقيّة، سكك حديديّة، مركز ناسا، المدينة الطبيّة.</td>
+            <td class="p-4">وظيفة <b>ربط وتواصل وخدمات متطوّرة</b>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Integration -->
+  <div class="reveal grid lg:grid-cols-2 gap-6 mb-8">
+    <div class="rounded-3xl bg-white p-7 shadow-lg">
+      <h3 class="font-extrabold text-xl mb-5 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-brand-600 text-white grid place-items-center text-sm">3</span> علاقة تكامل بين المكوّنات والتجهيزات</h3>
+      <div class="space-y-4">
+        <div class="p-4 rounded-2xl bg-brand-50">
+          <p class="font-bold text-brand-800 mb-1">⚡ سرعة التّواصل بين المكوّنات</p>
+          <p class="text-sm text-ink/75 leading-relaxed">شبكة كثيفة من <b>الطرقات السريعة والحلقيّة (Freeways)</b>، شوارع عريضة تستوعب عددًا هائلاً من السيّارات، <b>سكك حديديّة</b> وميترو ومطارات دوليّة تربط الأحياء ببعضها وبالخارج.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-orange-50">
+          <p class="font-bold text-clay-600 mb-1">🏦 سرعة الخدمات وتنوّعها</p>
+          <p class="text-sm text-ink/75 leading-relaxed">خدمات <b>إداريّة وماليّة وتجاريّة</b> متطوّرة ورقميّة، تغطية شاملة بالماء والكهرباء والاتّصالات، مستشفيات وجامعات ومراكز بحث.</p>
+        </div>
+        <div class="p-4 rounded-2xl bg-emerald-50">
+          <p class="font-bold text-emerald-700 mb-1">📈 تركيبة نشّطت الاقتصاد</p>
+          <p class="text-sm text-ink/75 leading-relaxed">هذا التنظيم المحكم <b>يربح الوقت</b> ويرفع الإنتاجيّة، في إطار <b>نظام اقتصادي رأسمالي</b> يهدف إلى تحقيق القيمة المضافة والتطوير والرّبح.</p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-3xl bg-white p-7 shadow-lg">
+      <h4 class="font-extrabold text-lg mb-5">سلسلة العلاقة الوظيفيّة داخل المدينة</h4>
+      <svg viewBox="0 0 480 300" class="w-full h-auto">
+        <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1d63dd"/></marker></defs>
+        <g font-family="Tajawal" font-weight="700" font-size="13">
+          <rect x="160" y="15" width="160" height="46" rx="12" fill="#1d63dd"/><text x="240" y="43" text-anchor="middle" fill="#fff">حيّ الأعمال (القرار)</text>
+          <rect x="20" y="125" width="150" height="46" rx="12" fill="#d2762f"/><text x="95" y="153" text-anchor="middle" fill="#fff">أحياء الأقليّات (اليد العاملة)</text>
+          <rect x="310" y="125" width="150" height="46" rx="12" fill="#16a34a"/><text x="385" y="153" text-anchor="middle" fill="#fff">الضّواحي الغنيّة (الاستهلاك)</text>
+          <rect x="150" y="235" width="180" height="46" rx="12" fill="#12253b"/><text x="240" y="263" text-anchor="middle" fill="#fff">تجهيزات ونقل سريع</text>
+        </g>
+        <g stroke="#1d63dd" stroke-width="2.5" fill="none" marker-end="url(#arr)">
+          <path d="M180 61 C120 80 100 100 96 122"/>
+          <path d="M300 61 C360 80 380 100 384 122"/>
+          <path d="M120 171 C150 210 180 225 200 233"/>
+          <path d="M360 171 C330 210 300 225 282 233"/>
+          <path d="M240 232 C240 180 240 120 240 64" stroke-dasharray="5 4"/>
+        </g>
+      </svg>
+      <p class="text-xs text-center text-ink/50 mt-2">وثيقة 2: التّكامل الوظيفي بين مكوّنات المدينة الأمريكيّة.</p>
+    </div>
+  </div>
+
+  <div class="reveal rounded-3xl p-7 bg-gradient-to-l from-brand-700 to-brand-900 text-white shadow-xl">
+    <p class="text-clay-400 font-bold mb-2">✅ استنتاج جزئي</p>
+    <p class="leading-loose">
+      تمثّل مدينة هيوستن <b>نموذجًا للمدينة الأمريكيّة</b> المنظّمة في شكل <b>دوائر متتالية</b> حول حيّ الأعمال، تتميّز بتكامل مكوّناتها
+      وبتجهيزات عصريّة تضمن سرعة التّنقّل والخدمات. وهو نموذج تتميّز به بلدان العالم المتقدّم <b>إلى جانب نماذج أخرى أوروبيّة</b>
+      (مدن ذات مركز تاريخي عتيق كباريس وروما) واليابانيّة، رغم بقاء بعض مظاهر <b>التفاوت الاجتماعي والمجالي</b> بين الأحياء.
+    </p>
+  </div>
+</section>
+
+<!-- ================= LAGOS ================= -->
+<section id="lagos" class="py-12 sm:py-20">
+  <div class="reveal flex flex-wrap items-end justify-between gap-4 mb-10">
+    <div>
+      <p class="text-clay-600 font-bold mb-2">العنصر الثاني</p>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline">مشهد حضري بالعالم النّامي: مدينة لاغوس بنيجيريا</h2>
+    </div>
+    <span class="px-4 py-2 rounded-xl bg-clay-500 text-white font-bold shadow-lg">🇳🇬 نيجيريا ـ غرب إفريقيا</span>
+  </div>
+
+  <div class="reveal grid lg:grid-cols-5 gap-6 mb-10">
+    <div class="lg:col-span-2 rounded-3xl bg-white p-7 shadow-lg">
+      <h3 class="font-extrabold text-xl mb-4 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-clay-500 text-white grid place-items-center text-sm">1</span> الموقـع وبعض المؤشّرات</h3>
+      <ul class="space-y-3 text-sm leading-relaxed text-ink/80">
+        <li>🧭 تقع في <b>جنوب غرب نيجيريا</b> على ساحل <b>خليج غينيا</b> (المحيط الأطلسي).</li>
+        <li>🏝️ تنتشر على <b>جزر وبحيرة ساحليّة</b> (Lagoon) وعلى البرّ الرئيسي.</li>
+        <li>👥 أكثر من <b>15 مليون ساكن</b> ← أكبر تجمّع حضري في إفريقيا.</li>
+        <li>📈 نموّ سكّاني <b>انفجاري</b> بسبب النّزوح الريفي والتزايد الطبيعي.</li>
+        <li>🏚️ أكثر من <b>60٪</b> من السكّان يقطنون أحياء فقيرة أو قصديريّة.</li>
+      </ul>
+      <div class="mt-5 p-4 rounded-2xl bg-orange-50 border-r-4 border-clay-500 text-sm">
+        <b>مفارقة:</b> مدينة تتضخّم سكّانيًّا بسرعة كبيرة دون أن تتطوّر تجهيزاتها بنفس النّسق ← <b>تمدّن بدون تنمية</b>.
+      </div>
+    </div>
+    <div class="lg:col-span-3 rounded-3xl bg-white p-4 sm:p-6 shadow-lg">
+      <svg viewBox="0 0 620 340" class="w-full h-auto">
+        <rect width="620" height="340" fill="#eef6ff" rx="18"/>
+        <path d="M40 40 L280 30 L400 70 L470 130 L440 210 L350 250 L250 265 L140 240 L60 170 Z" fill="#e7dfc9" stroke="#c3b48c" stroke-width="2"/>
+        <path d="M250 265 L350 250 L440 210 L520 250 L500 320 L300 330 L180 300 Z" fill="#3182f6" opacity=".75"/>
+        <text x="400" y="305" text-anchor="middle" font-size="13" fill="#fff" font-family="Tajawal" font-weight="700">خليج غينيا / الأطلسي</text>
+        <text x="230" y="140" text-anchor="middle" font-size="15" fill="#8a7a4d" font-family="Tajawal" font-weight="700">نيجيريا</text>
+        <circle cx="272" cy="258" r="9" fill="#d2762f" class="animate-floaty"/>
+        <circle cx="272" cy="258" r="18" fill="none" stroke="#d2762f" stroke-width="2" opacity=".5"/>
+        <line x1="272" y1="258" x2="180" y2="205" stroke="#12253b" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <rect x="70" y="180" width="120" height="32" rx="8" fill="#12253b"/>
+        <text x="130" y="201" text-anchor="middle" font-size="14" fill="#fff" font-family="Tajawal" font-weight="700">لاغوس Lagos</text>
+        <g transform="translate(560,60)">
+          <circle r="22" fill="#fff" stroke="#12253b" stroke-width="1.5"/>
+          <path d="M0,-16 L5,4 L0,0 L-5,4 Z" fill="#d2762f"/>
+          <text y="-26" text-anchor="middle" font-size="10" font-family="Tajawal" font-weight="700" fill="#12253b">ش</text>
+        </g>
+      </svg>
+      <p class="text-center text-xs text-ink/50 mt-2">وثيقة 3: توطين مدينة لاغوس على ساحل خليج غينيا.</p>
+    </div>
+  </div>
+
+  <!-- Lagos interactive diagram -->
+  <div class="reveal rounded-3xl bg-white p-6 sm:p-8 shadow-lg mb-10">
+    <h3 class="font-extrabold text-xl mb-2 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-clay-500 text-white grid place-items-center text-sm">2</span> المكوّنات ـ رسم تخطيطي مبسّط تفاعلي</h3>
+    <p class="text-sm text-ink/60 mb-6">انقر على المكوّنات لاكتشاف خصائصها ووظيفتها.</p>
+    <div class="grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 rounded-2xl bg-sand p-3">
+        <svg viewBox="0 0 640 460" class="w-full h-auto">
+          <rect width="640" height="460" fill="#f7f3ec" rx="14"/>
+          <!-- lagoon -->
+          <path d="M0 250 Q160 200 320 255 T640 240 L640 460 L0 460 Z" fill="#8ec5ff" opacity=".55"/>
+          <text x="80" y="440" font-size="12" font-family="Tajawal" fill="#1b3c73" font-weight="700">البحيرة السّاحليّة / المحيط</text>
+          <!-- mainland poor -->
+          <g class="zone" data-city="l" data-key="poor">
+            <rect x="30" y="30" width="380" height="190" rx="16" fill="#f3ddc0" stroke="#cbа" />
+            <rect x="30" y="30" width="380" height="190" rx="16" fill="#f3ddc0" stroke="#c9a97e" stroke-width="2"/>
+            <text x="220" y="55" text-anchor="middle" font-size="14" font-family="Tajawal" font-weight="800" fill="#8a6a33">البرّ الرئيسي ـ الأحياء الفقيرة المكتظّة</text>
+            <g fill="#c9a97e">
+              <rect x="55" y="80" width="34" height="34"/><rect x="97" y="72" width="30" height="42"/><rect x="135" y="86" width="38" height="28"/>
+              <rect x="182" y="76" width="28" height="38"/><rect x="220" y="88" width="40" height="26"/><rect x="270" y="74" width="30" height="40"/>
+              <rect x="310" y="84" width="36" height="30"/><rect x="355" y="78" width="30" height="36"/>
+              <rect x="60" y="135" width="40" height="30"/><rect x="110" y="128" width="28" height="37"/><rect x="150" y="140" width="42" height="25"/>
+              <rect x="205" y="130" width="30" height="35"/><rect x="248" y="142" width="38" height="23"/><rect x="298" y="132" width="32" height="33"/>
+              <rect x="342" y="138" width="42" height="27"/>
+            </g>
+            <text x="220" y="200" text-anchor="middle" font-size="12" font-family="Tajawal" fill="#8a6a33">اكتظاظ ـ أزقّة ضيّقة ـ بناء فوضوي</text>
+          </g>
+          <!-- shanty on water -->
+          <g class="zone" data-city="l" data-key="shanty">
+            <rect x="30" y="255" width="230" height="120" rx="14" fill="#a8998a" opacity=".9"/>
+            <g fill="#6f6257">
+              <rect x="50" y="290" width="30" height="24"/><rect x="88" y="284" width="26" height="30"/><rect x="122" y="292" width="32" height="22"/>
+              <rect x="162" y="286" width="28" height="28"/><rect x="198" y="294" width="34" height="20"/>
+              <rect x="60" y="326" width="34" height="20"/><rect x="104" y="322" width="28" height="24"/><rect x="142" y="330" width="36" height="16"/>
+              <rect x="186" y="324" width="30" height="22"/>
+            </g>
+            <text x="145" y="278" text-anchor="middle" font-size="13" font-family="Tajawal" font-weight="800" fill="#fff">الأحياء القصديريّة (ماكوكو)</text>
+          </g>
+          <!-- CBD island -->
+          <g class="zone" data-city="l" data-key="cbd">
+            <rect x="300" y="270" width="150" height="110" rx="14" fill="#1d63dd"/>
+            <g fill="#fff" opacity=".95">
+              <rect x="325" y="310" width="14" height="50"/><rect x="345" y="298" width="12" height="62"/><rect x="362" y="318" width="15" height="42"/><rect x="384" y="305" width="13" height="55"/>
+            </g>
+            <text x="375" y="292" text-anchor="middle" font-size="13" font-family="Tajawal" font-weight="800" fill="#fff">مركز الأعمال (جزيرة لاغوس)</text>
+          </g>
+          <!-- rich enclave -->
+          <g class="zone" data-city="l" data-key="rich">
+            <rect x="470" y="270" width="145" height="110" rx="14" fill="#16a34a" opacity=".9"/>
+            <g fill="#fff" opacity=".9">
+              <rect x="492" y="315" width="30" height="22" rx="3"/><rect x="534" y="315" width="30" height="22" rx="3"/><rect x="513" y="345" width="30" height="20" rx="3"/>
+            </g>
+            <path d="M470 270 L615 270" stroke="#fff" stroke-width="3" stroke-dasharray="6 5"/>
+            <text x="542" y="292" text-anchor="middle" font-size="12.5" font-family="Tajawal" font-weight="800" fill="#fff">أحياء الأغنياء المنعزلة</text>
+            <text x="542" y="378" text-anchor="middle" font-size="11" font-family="Tajawal" fill="#eaffea">إيكويي ـ جزيرة فيكتوريا</text>
+          </g>
+          <!-- bridge -->
+          <g class="zone" data-city="l" data-key="bridge">
+            <path d="M220 220 L330 268" stroke="#12253b" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+            <path d="M450 320 L470 320" stroke="#12253b" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+            <text x="245" y="248" font-size="11" font-family="Tajawal" font-weight="700" fill="#12253b">جسر مكتظّ</text>
+          </g>
+          <text x="560" y="60" text-anchor="middle" font-size="12" font-family="Tajawal" fill="#12253b" opacity=".6">رسم تخطيطي مبسّط ـ لاغوس</text>
+        </svg>
+      </div>
+      <div id="lPanel" class="rounded-2xl bg-gradient-to-b from-clay-600 to-ink text-white p-6 shadow-xl min-h-[260px] flex flex-col justify-center">
+        <p class="text-orange-200 text-sm mb-2">بطاقة المكوّن</p>
+        <h4 class="text-2xl font-extrabold mb-3">مكوّنات لاغوس</h4>
+        <p class="text-white/80 text-sm leading-relaxed">اختر مكوّنًا من الرّسم لعرض خصائصه المعماريّة ووظيفته.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lagos table -->
+  <div class="reveal rounded-3xl bg-white shadow-lg overflow-hidden mb-10">
+    <div class="p-6 sm:p-7 border-b border-ink/10 bg-gradient-to-l from-orange-50 to-white">
+      <h3 class="font-extrabold text-xl">جدول: مكوّنات مدينة لاغوس ـ الخصائص المعماريّة ـ الوظيفة</h3>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="lesson w-full text-sm min-w-[720px]">
+        <thead class="bg-clay-600 text-white">
+          <tr>
+            <th class="p-4 text-right font-bold">المكوّن</th>
+            <th class="p-4 text-right font-bold">الموقع</th>
+            <th class="p-4 text-right font-bold">الخصائص المعماريّة</th>
+            <th class="p-4 text-right font-bold">الوظيفة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-4 font-bold text-brand-800">مركز الأعمال</td>
+            <td class="p-4">جزيرة لاغوس (وسط المدينة)</td>
+            <td class="p-4">عدد محدود من ناطحات السّحاب والبنايات الحديثة وسط بنايات قديمة، ازدحام شديد.</td>
+            <td class="p-4">وظيفة <b>ماليّة وتجاريّة وإداريّة</b>: بنوك، شركات، أسواق كبرى، مقرّات حكوميّة.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-emerald-700">أحياء الأغنياء المنعزلة</td>
+            <td class="p-4">جزيرة فيكتوريا وإيكويي</td>
+            <td class="p-4">فيلات فاخرة وإقامات مغلقة محروسة بأسوار، طرقات معبّدة، فضاءات خضراء، كلّ الخدمات متوفّرة.</td>
+            <td class="p-4">وظيفة <b>سكنيّة راقية</b> للنّخبة والأجانب ← <b>جزر من الرّفاه</b> تشبه العالم المتقدّم.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-clay-600">الأحياء الفقيرة</td>
+            <td class="p-4">البرّ الرئيسي (Mainland)</td>
+            <td class="p-4">مساكن متلاصقة رديئة البناء، أزقّة ضيّقة، اكتظاظ سكّاني، تجهيزات ناقصة وقديمة.</td>
+            <td class="p-4">وظيفة <b>سكنيّة شعبيّة</b> + أنشطة القطاع غير المنظّم (تجارة موازية، حرف صغيرة).</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-red-700">الأحياء القصديريّة</td>
+            <td class="p-4">أطراف المدينة وفوق المياه (ماكوكو)</td>
+            <td class="p-4">أكواخ من الصفيح والخشب على ركائز، بدون ماء صالح للشراب ولا كهرباء ولا تطهير، طرقات ترابيّة.</td>
+            <td class="p-4">مأوى اضطراري للنّازحين من الأرياف ← <b>الفقر والتّهميش والهشاشة</b>.</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold text-ink/70">التجهيزات والمواصلات</td>
+            <td class="p-4">جسور ومحاور رئيسيّة</td>
+            <td class="p-4">شبكة طرقات ضعيفة وقديمة، جسور مكتظّة، نقل جماعي غير منظّم (الحافلات الصفراء «دانفو»).</td>
+            <td class="p-4">ربط ضعيف بين المكوّنات ← <b>اختناق مروري</b> يوميّ وضياع للوقت.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- problems -->
+  <div class="reveal grid lg:grid-cols-2 gap-6 mb-8">
+    <div class="rounded-3xl bg-white p-7 shadow-lg">
+      <h3 class="font-extrabold text-xl mb-5 flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-clay-500 text-white grid place-items-center text-sm">3</span> العلاقة بين مكوّنات المدينة: مشاكل عديدة</h3>
+      <div class="space-y-3 text-sm">
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🚧</span><p><b>عزلة أحياء الأغنياء</b> وتشابهها مع العالم المتقدّم مقابل بقيّة الأحياء ← تفاوت مجالي واجتماعي صارخ.</p></div>
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🚗</span><p><b>صعوبة التّواصل</b> بين مختلف المكوّنات: اختناقات مروريّة خانقة وساعات طويلة في التّنقّل.</p></div>
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🛠️</span><p><b>ضعف التّجهيزات وقِدَمها</b> وتردّي البنية التحتيّة وشبكة المواصلات ووسائل النّقل.</p></div>
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🏥</span><p><b>ضعف تلبية الخدمات</b>: صحّة، تعليم، ماء، كهرباء، تطهير، جمع الفضلات.</p></div>
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🐢</span><p><b>نسق بطيء</b> للحركة الاقتصاديّة والخدماتيّة والتجاريّة وانتشار القطاع غير المنظّم.</p></div>
+        <div class="flex gap-3 p-3 rounded-xl bg-red-50"><span>🏚️</span><p><b>أحياء فقيرة وقصديريّة</b> تفتقر لأبسط التّجهيزات والضّروريّات ← بطالة، تلوّث، جريمة.</p></div>
+      </div>
+    </div>
+    <div class="rounded-3xl bg-white p-7 shadow-lg">
+      <h4 class="font-extrabold text-lg mb-6">مؤشّرات دالّة (نسب تقريبيّة)</h4>
+      <div id="bars" class="space-y-6 text-sm"></div>
+      <p class="text-xs text-ink/50 mt-6">المصدر: تقديرات الأمم المتّحدة ـ برنامج المستوطنات البشريّة (UN-Habitat).</p>
+    </div>
+  </div>
+
+  <div class="reveal rounded-3xl p-7 bg-gradient-to-l from-clay-600 to-ink text-white shadow-xl">
+    <p class="text-orange-200 font-bold mb-2">✅ استنتاج جزئي</p>
+    <p class="leading-loose">
+      تُعدّ لاغوس <b>نموذجًا يعكس مشاكل مدن العالم النّامي</b> التي <b>تضخّمت سكّانيًّا ولم تتطوّر</b>: نموّ حضري سريع وعشوائي
+      لم تواكبه تجهيزات ولا مواطن شغل كافية، فنتج عنه مشهد حضري <b>مُجزّأ ومتناقض</b> تتجاور فيه أحياء الثّراء الفاحش
+      مع أحياء البؤس والقصدير.
+    </p>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section id="muqarana" class="py-12 sm:py-20">
+  <div class="reveal">
+    <p class="text-clay-600 font-bold mb-2">تركيب</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline mb-10">جـدول الــمُــقــارنــة: هيوستن / لاغوس</h2>
+  </div>
+  <div class="reveal rounded-3xl bg-white shadow-lg overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="lesson w-full text-sm min-w-[700px]">
+        <thead>
+          <tr class="bg-ink text-white">
+            <th class="p-4 text-right">عناصر المقارنة</th>
+            <th class="p-4 text-right bg-brand-700">هيوستن (عالم متقدّم)</th>
+            <th class="p-4 text-right bg-clay-600">لاغوس (عالم نامٍ)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="p-4 font-bold">تنظيم المجال</td><td class="p-4">منظّم في دوائر متتالية حول حيّ الأعمال</td><td class="p-4">مجزّأ وعشوائي، تناقض بين الجزر والبرّ الرئيسي</td></tr>
+          <tr><td class="p-4 font-bold">البناء</td><td class="p-4">ناطحات سحاب حديثة + بناء أفقي مخطّط بالضّواحي</td><td class="p-4">بنايات حديثة قليلة وسط بناء فوضوي وأكواخ قصديريّة</td></tr>
+          <tr><td class="p-4 font-bold">التّجهيزات</td><td class="p-4">عصريّة ومتنوّعة وشاملة لكلّ المجال</td><td class="p-4">ضعيفة وقديمة وغير متوازنة التوزيع</td></tr>
+          <tr><td class="p-4 font-bold">المواصلات</td><td class="p-4">طرقات سريعة، سكك حديديّة، مطارات ← سرعة التنقّل</td><td class="p-4">جسور مكتظّة ونقل غير منظّم ← اختناق دائم</td></tr>
+          <tr><td class="p-4 font-bold">الخدمات</td><td class="p-4">سريعة ومتطوّرة (إداريّة، ماليّة، تجاريّة، صحيّة)</td><td class="p-4">ناقصة وبطيئة ومحتكرة من طرف الأحياء الراقية</td></tr>
+          <tr><td class="p-4 font-bold">الاقتصاد</td><td class="p-4">ديناميكي، رأسمالي، مرتفع القيمة المضافة</td><td class="p-4">بطيء، يهيمن عليه القطاع غير المنظّم</td></tr>
+          <tr><td class="p-4 font-bold">أبرز المشاكل</td><td class="p-4">تلوّث، تمدّد أفقي، تفاوت اجتماعي نسبي</td><td class="p-4">فقر، بطالة، سكن قصديري، تهميش، ازدحام</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KHATIMA ================= -->
+<section id="khatima" class="py-12 sm:py-20">
+  <div class="reveal relative rounded-[2rem] overflow-hidden bg-gradient-to-bl from-brand-900 via-ink to-clay-600 text-white p-8 sm:p-12 shadow-2xl grain">
+    <div class="absolute -top-16 -right-10 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+    <p class="text-brand-200 font-bold mb-2">الخاتمة</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">خــاتــمــة الــدّرس</h2>
+    <div class="grid lg:grid-cols-2 gap-8 leading-loose text-white/90">
+      <p>
+        يتبيّن ممّا سبق أنّ <b>المشهد الحضري</b> يعكس بصدق مستوى تنمية البلد الذي ينتمي إليه: ففي العالم المتقدّم،
+        كما تشهد على ذلك مدينة <b>هيوستن</b>، تبدو المدينة مجالًا <b>منظّمًا ومتكاملًا</b> تربط بين مكوّناته تجهيزات عصريّة
+        تضمن سرعة التّنقّل والخدمة وتخدم منطق الرّبح والإنتاجيّة.
+      </p>
+      <p>
+        أمّا في العالم النّامي، كما هو الحال في <b>لاغوس</b>، فإنّ المدينة تعاني من <b>تضخّم سكّاني</b> لم تواكبه تنمية،
+        فتحوّلت إلى مجال من <b>التّناقضات</b> والفوارق الصّارخة. ويطرح ذلك تحدّيات كبرى أمام هذه البلدان
+        من أجل <b>تهيئة عمرانيّة عادلة</b> وتوفير السّكن اللائق والخدمات لكلّ المواطنين.
+      </p>
+    </div>
+    <div class="mt-8 p-5 rounded-2xl bg-white/10 border border-white/20">
+      <p class="font-bold mb-1">🔗 تمهيد للدّرس الموالي:</p>
+      <p class="text-white/85 text-sm">وإذا كان هذا حال المشاهد الحضريّة، فما هي خصائص <b>المشاهد الريفيّة</b> في العالم المتقدّم وفي العالم النّامي؟</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ANSHITA ================= -->
+<section id="anshita" class="py-12 sm:py-24">
+  <div class="reveal">
+    <p class="text-clay-600 font-bold mb-2">04 ـ التقييم</p>
+    <h2 class="font-serif text-3xl sm:text-4xl font-bold title-underline mb-10">الأنــشــطــة الــمَــهــاريّــة</h2>
+  </div>
+
+  <!-- Activity 1 : QCM -->
+  <div class="reveal rounded-3xl bg-white shadow-lg p-6 sm:p-8 mb-8">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="w-10 h-10 rounded-xl bg-brand-600 text-white grid place-items-center font-black">1</span>
+      <h3 class="font-extrabold text-xl">النّشاط الأوّل: اختبار المعارف (اختيار من متعدّد)</h3>
+    </div>
+    <p class="text-sm text-ink/60 mb-6">اختر الإجابة الصحيحة لكلّ سؤال ثمّ اضغط على «تصحيح».</p>
+    <div id="quiz" class="space-y-6"></div>
+    <div class="flex flex-wrap gap-3 items-center mt-7">
+      <button id="checkBtn" class="px-6 py-3 rounded-xl bg-ink text-white font-bold hover:bg-brand-700 transition shadow-lg">تصحيح الإجابات</button>
+      <button id="resetBtn" class="px-6 py-3 rounded-xl border-2 border-ink/20 font-bold hover:bg-sand transition">إعادة المحاولة</button>
+      <div id="score" class="font-extrabold text-lg"></div>
+    </div>
+  </div>
+
+  <!-- Activity 2 : matching -->
+  <div class="reveal rounded-3xl bg-white shadow-lg p-6 sm:p-8 mb-8">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="w-10 h-10 rounded-xl bg-clay-500 text-white grid place-items-center font-black">2</span>
+      <h3 class="font-extrabold text-xl">النّشاط الثاني: اربط كلّ مكوّن بوظيفته</h3>
+    </div>
+    <p class="text-sm text-ink/60 mb-6">اختر الوظيفة المناسبة من القائمة المنسدلة أمام كلّ مكوّن.</p>
+    <div id="match" class="grid sm:grid-cols-2 gap-4"></div>
+    <button id="matchBtn" class="mt-6 px-6 py-3 rounded-xl bg-clay-500 text-white font-bold hover:bg-clay-600 transition shadow-lg">تحقّق</button>
+    <span id="matchRes" class="mr-4 font-bold"></span>
+  </div>
+
+  <!-- Activity 3 : classification -->
+  <div class="reveal rounded-3xl bg-white shadow-lg p-6 sm:p-8 mb-8">
+    <div class="flex items-center gap-3 mb-2">
+      <span class="w-10 h-10 rounded-xl bg-emerald-600 text-white grid place-items-center font-black">3</span>
+      <h3 class="font-extrabold text-xl">النّشاط الثالث: صنّف الخاصيّة</h3>
+    </div>
+    <p class="text-sm text-ink/60 mb-6">انقر على البطاقة لتصنيفها: <span class="kbd">هيوستن</span> أو <span class="kbd">لاغوس</span> (كلّ نقرة تغيّر التّصنيف).</p>
+    <div id="classify" class="flex flex-wrap gap-3"></div>
+    <button id="classBtn" class="mt-6 px-6 py-3 rounded-xl bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition shadow-lg">تحقّق من التّصنيف</button>
+    <span id="classRes" class="mr-4 font-bold"></span>
+  </div>
+
+  <!-- Activity 4 : document + drawing -->
+  <div class="grid lg:grid-cols-2 gap-6">
+    <div class="reveal rounded-3xl bg-white shadow-lg p-6 sm:p-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-10 h-10 rounded-xl bg-ink text-white grid place-items-center font-black">4</span>
+        <h3 class="font-extrabold text-xl">درس الوثيقة</h3>
+      </div>
+      <div class="p-5 rounded-2xl bg-sand border-r-4 border-clay-500 text-sm leading-loose mb-5 font-serif text-[16px]">
+        «في لاغوس، يقطع الموظّف يوميًّا أكثر من ثلاث ساعات ليصل إلى مكتبه في الجزيرة، بينما لا يبعد منزله سوى بضعة كيلومترات.
+        وعلى بعد أمتار من الأبراج الزجاجيّة، تمتدّ فوق مياه البحيرة آلاف الأكواخ الخشبيّة لحيّ ماكوكو حيث يعيش السكّان بلا ماء صالح للشراب ولا كهرباء…»
+        <span class="block mt-2 text-xs text-ink/50">ـ عن تقرير حول التمدّن في إفريقيا، بتصرّف.</span>
+      </div>
+      <ol class="space-y-3 text-sm list-decimal pr-5 marker:font-bold marker:text-clay-600">
+        <li>حدّد نوع الوثيقة ومصدرها.</li>
+        <li>استخرج من النصّ مظهرين من مظاهر تردّي البنية التحتيّة.</li>
+        <li>ما هي المفارقة التي يبرزها النصّ بين حيّ ماكوكو والأبراج الزجاجيّة؟</li>
+        <li>اقترح حلّين لتحسين ظروف عيش سكّان الأحياء القصديريّة.</li>
+      </ol>
+    </div>
+
+    <div class="reveal rounded-3xl bg-white shadow-lg p-6 sm:p-8">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-10 h-10 rounded-xl bg-brand-600 text-white grid place-items-center font-black">5</span>
+        <h3 class="font-extrabold text-xl">إنجاز رسم تخطيطي</h3>
+      </div>
+      <p class="text-sm text-ink/70 leading-relaxed mb-4">
+        <b>التعليمة:</b> أنجز على كرّاسك رسمًا تخطيطيًّا مبسّطًا لمدينة من العالم المتقدّم، مع وضع <b>مفتاح</b> ملائم يتضمّن العناصر التالية:
+      </p>
+      <div class="grid grid-cols-2 gap-3 text-sm mb-5">
+        <div class="flex items-center gap-2 p-3 rounded-xl bg-brand-50"><span class="w-4 h-4 rounded bg-brand-600"></span> حيّ الأعمال</div>
+        <div class="flex items-center gap-2 p-3 rounded-xl bg-orange-50"><span class="w-4 h-4 rounded bg-clay-400"></span> أحياء الأقليّات</div>
+        <div class="flex items-center gap-2 p-3 rounded-xl bg-emerald-50"><span class="w-4 h-4 rounded bg-emerald-500"></span> الضّواحي الغنيّة</div>
+        <div class="flex items-center gap-2 p-3 rounded-xl bg-gray-100"><span class="w-4 h-4 rounded bg-ink"></span> طرقات سريعة</div>
+      </div>
+      <details class="rounded-2xl bg-sand p-4">
+        <summary class="font-bold flex items-center gap-2"><span class="chev">▸</span> معايير التّقييم (سلّم الإصلاح)</summary>
+        <ul class="mt-3 space-y-2 text-sm text-ink/75 pr-4">
+          <li>• احترام تموقع المكوّنات (مركز / حزام / أطراف) ......... 3 ن</li>
+          <li>• دقّة المفتاح وتناسب الألوان ......... 2 ن</li>
+          <li>• وجود عنوان للرّسم واتّجاه الشّمال ......... 2 ن</li>
+          <li>• النّظافة ووضوح الخطّ ......... 1 ن</li>
+        </ul>
+      </details>
+      <div class="mt-5 p-4 rounded-2xl bg-ink text-white text-sm">
+        <b>عمل منزلي:</b> ابحث عن صورة لمدينة تونسيّة (تونس العاصمة مثلاً) وحدّد فيها مكوّنات المشهد الحضري التي درستها.
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="mt-10 bg-ink text-white/80 grain relative">
+  <div class="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-xl ribbon animate-shine grid place-items-center text-white font-black">ج</div>
+        <div>
+          <p class="font-extrabold text-white">درس المشاهد الحضريّة</p>
+          <p class="text-xs">محور: مشاهد حضريّة ومشاهد ريفيّة</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">درس رقمي تفاعلي في مادّة الجغرافيا، معدّ وفق البرامج الرسميّة لوزارة التربية بالجمهوريّة التونسيّة.</p>
+    </div>
+    <div>
+      <p class="font-bold text-white mb-4">محتويات الدّرس</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#objectifs" class="hover:text-clay-400 transition">الأهداف البيداغوجيّة</a></li>
+        <li><a href="#houston" class="hover:text-clay-400 transition">العنصر الأوّل: هيوستن</a></li>
+        <li><a href="#lagos" class="hover:text-clay-400 transition">العنصر الثاني: لاغوس</a></li>
+        <li><a href="#anshita" class="hover:text-clay-400 transition">الأنشطة المهاريّة</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="font-bold text-white mb-4">بطاقة الدّرس</p>
+      <ul class="space-y-2 text-sm">
+        <li>👨‍🏫 إعداد: الأستاذ <b class="text-white">رياض سليمي</b></li>
+        <li>🎓 المستوى: السّابعة أساسي</li>
+        <li>📅 السنة الدراسيّة: 2026 / 2027</li>
+        <li>📚 المادّة: الجغرافيا</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-xs">
+    © 2026 ـ جميع الحقوق محفوظة | إعداد الأستاذ رياض سليمي ـ درس رقمي تربوي.
+  </div>
+</footer>
+
+<button id="toTop" class="no-print fixed bottom-6 left-6 w-12 h-12 rounded-full bg-ink text-white shadow-2xl grid place-items-center opacity-0 pointer-events-none transition hover:bg-brand-700 z-40">↑</button>
+
+<script>
+/* ---------- Mobile menu ---------- */
+const burger=document.getElementById('burger'), mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>mm.classList.toggle('hidden'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.add('hidden')));
+
+/* ---------- Scroll progress + toTop ---------- */
+const pb=document.getElementById('progressBar'), toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  pb.style.width=(window.scrollY/h*100)+'%';
+  if(window.scrollY>500){toTop.style.opacity=1;toTop.style.pointerEvents='auto';}
+  else{toTop.style.opacity=0;toTop.style.pointerEvents='none';}
+});
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ---------- Reveal ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- Concepts ---------- */
+const concepts=[
+  {t:'المشهد الحضري',d:'كلّ ما تراه العين في المدينة من مبانٍ وشوارع وتجهيزات وأنشطة، وهو انعكاس لتنظيم المجال ولمستوى التّنمية.',i:'🏙️'},
+  {t:'التمدّن',d:'ارتفاع نسبة سكّان المدن ضمن جملة السكّان، ويكون نتيجة النموّ الطبيعي والنّزوح الريفي وتوسّع المدن.',i:'📊'},
+  {t:'حيّ الأعمال (CBD)',d:'مركز المدينة حيث تتركّز البنوك والإدارات وناطحات السّحاب، يتميّز بارتفاع أثمان العقارات وقلّة السكّان ليلاً.',i:'🏦'},
+  {t:'الضّاحية',d:'مجال سكني يقع في أطراف المدينة، قد يكون راقيًا (فيلات وخضرة) أو شعبيًّا حسب الفئة الاجتماعيّة.',i:'🏡'},
+  {t:'الحيّ القصديري',d:'تجمّع سكني عشوائي من مواد بسيطة (صفيح، خشب) يفتقر إلى الماء والكهرباء والتّطهير، ينتشر بمدن العالم النّامي.',i:'🏚️'},
+  {t:'البنية التحتيّة',d:'مجموع التجهيزات الأساسيّة: طرقات، جسور، ماء، كهرباء، تطهير، اتّصالات… وهي عصب الحياة في المدينة.',i:'🛣️'},
+  {t:'التفاوت المجالي',d:'اختلاف بيّن في مستوى التجهيز والخدمات وظروف العيش بين أحياء المدينة الواحدة.',i:'⚖️'},
+  {t:'النظام الرأسمالي',d:'نظام اقتصادي يقوم على الملكيّة الخاصّة وحريّة المبادرة والمنافسة، هدفه تحقيق الرّبح والقيمة المضافة.',i:'💹'}
+];
+document.getElementById('conceptGrid').innerHTML=concepts.map((c,i)=>`
+<div class="card-hover reveal group rounded-3xl bg-white p-6 shadow-md border border-ink/5 cursor-pointer" style="transition-delay:${i*60}ms" onclick="this.querySelector('.def').classList.toggle('hidden')">
+  <div class="text-3xl mb-3">${c.i}</div>
+  <h3 class="font-extrabold text-lg mb-2 text-brand-800">${c.t}</h3>
+  <p class="def hidden text-sm text-ink/75 leading-relaxed">${c.d}</p>
+  <p class="text-xs text-clay-600 font-bold mt-3 group-hover:translate-x-[-4px] transition">انقر للتعريف ←</p>
+</div>`).join('');
+document.querySelectorAll('#conceptGrid .reveal').forEach(el=>io.observe(el));
+
+/* ---------- Zone panels ---------- */
+const data={
+  h:{
+    cbd:{t:'حيّ الأعمال (Downtown)',c:'ناطحات سحاب زجاجيّة، بناء عمودي كثيف، شوارع واسعة مستقيمة، مواقف متعدّدة الطوابق.',f:'وظيفة اقتصاديّة وماليّة وإداريّة: بنوك، بورصة، شركات البترول، إدارات كبرى.'},
+    minority:{t:'أحياء الأقليّات (العمّال والموظّفون)',c:'مساكن متواضعة وعمارات قديمة، كثافة سكنيّة مرتفعة، قرب المناطق الصّناعيّة.',f:'وظيفة سكنيّة لليد العاملة من الأقليّات (أفارقة، لاتينيّون، آسيويّون).'},
+    suburbs:{t:'ضواحي الطبقات الغنيّة',c:'فيلات وسط مساحات خضراء، مسابح، ملاعب غولف، مراكز تجاريّة كبرى (Malls).',f:'وظيفة سكنيّة راقية وترفيهيّة مع خدمات عالية الجودة.'},
+    port:{t:'الميناء والمنطقة الصّناعيّة',c:'مصافي بترول، صهاريج، أرصفة ومستودعات وسكك حديديّة.',f:'وظيفة صناعيّة وتجاريّة وتصديريّة نحو خليج المكسيك والعالم.'},
+    airport:{t:'المطار الدّولي',c:'مدارج ومحطّات ضخمة على أطراف المدينة مرتبطة بالطرقات السّريعة.',f:'وظيفة الرّبط بالخارج وسرعة تنقّل الأشخاص والبضائع.'}
+  },
+  l:{
+    cbd:{t:'مركز الأعمال (جزيرة لاغوس)',c:'عدد محدود من الأبراج الحديثة وسط بنايات قديمة، ازدحام شديد.',f:'وظيفة ماليّة وتجاريّة وإداريّة: بنوك، شركات، أسواق كبرى.'},
+    rich:{t:'أحياء الأغنياء المنعزلة',c:'فيلات فاخرة وإقامات مغلقة بأسوار وحراسة، طرقات معبّدة، خضرة وخدمات كاملة.',f:'سكن النّخبة والأجانب ← جزر رفاه تشبه العالم المتقدّم وسط محيط فقير.'},
+    poor:{t:'الأحياء الفقيرة (البرّ الرئيسي)',c:'مساكن متلاصقة رديئة البناء، أزقّة ضيّقة، اكتظاظ، تجهيزات ناقصة وقديمة.',f:'سكن شعبي + أنشطة القطاع غير المنظّم (تجارة موازية وحرف صغيرة).'},
+    shanty:{t:'الأحياء القصديريّة (ماكوكو)',c:'أكواخ من الصفيح والخشب على ركائز فوق المياه، بلا ماء صالح للشراب ولا كهرباء ولا تطهير.',f:'مأوى اضطراري للنّازحين من الأرياف ← فقر وتهميش وهشاشة.'},
+    bridge:{t:'الجسور وشبكة المواصلات',c:'جسور قليلة ومكتظّة، طرقات قديمة، نقل جماعي غير منظّم (حافلات «دانفو»).',f:'ربط ضعيف بين المكوّنات ← اختناق مروري يوميّ وضياع للوقت.'}
+  }
+};
+function render(city,key){
+  const d=data[city][key]; const p=document.getElementById(city==='h'?'hPanel':'lPanel');
+  p.innerHTML=`<p class="${city==='h'?'text-brand-200':'text-orange-200'} text-sm mb-2">بطاقة المكوّن</p>
+  <h4 class="text-xl sm:text-2xl font-extrabold mb-4">${d.t}</h4>
+  <div class="mb-4"><p class="text-xs uppercase tracking-wide text-white/50 mb-1">الخصائص المعماريّة</p><p class="text-sm text-white/90 leading-relaxed">${d.c}</p></div>
+  <div><p class="text-xs uppercase tracking-wide text-white/50 mb-1">الوظيفة</p><p class="text-sm text-white/90 leading-relaxed">${d.f}</p></div>`;
+  p.animate([{opacity:.3,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],{duration:350,easing:'ease-out'});
+}
+document.querySelectorAll('.zone').forEach(z=>{
+  const act=()=>{document.querySelectorAll('.zone').forEach(x=>x.classList.remove('active'));z.classList.add('active');render(z.dataset.city,z.dataset.key);};
+  z.addEventListener('click',act); z.addEventListener('mouseenter',act);
+});
+
+/* ---------- Bars ---------- */
+const barsData=[
+  {l:'سكّان يقطنون أحياء فقيرة أو قصديريّة',v:62,c:'bg-red-500'},
+  {l:'نسبة الرّبط بشبكة التّطهير',v:12,c:'bg-clay-500'},
+  {l:'نسبة العاملين في القطاع غير المنظّم',v:70,c:'bg-amber-500'},
+  {l:'نموّ سكّاني سنوي للمدينة',v:35,c:'bg-brand-600'}
+];
+const barsEl=document.getElementById('bars');
+barsEl.innerHTML=barsData.map(b=>`<div>
+  <div class="flex justify-between mb-2 font-bold"><span>${b.l}</span><span>${b.v==35?'+3,5٪':b.v+'٪'}</span></div>
+  <div class="h-3 rounded-full bg-ink/10 overflow-hidden"><div class="bar h-full rounded-full ${b.c}" data-w="${b.v}" style="width:0"></div></div>
+</div>`).join('');
+const bo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){barsEl.querySelectorAll('.bar').forEach(b=>b.style.width=b.dataset.w+'%');bo.disconnect();}}),{threshold:.3});
+bo.observe(barsEl);
+
+/* ---------- Quiz ---------- */
+const qs=[
+  {q:'تقع مدينة هيوستن في:',o:['غرب الولايات المتّحدة على المحيط الهادي','جنوب الولايات المتّحدة بولاية تكساس قرب خليج المكسيك','شمال شرق الولايات المتّحدة'],a:1},
+  {q:'يوجد حيّ الأعمال في المدينة الأمريكيّة:',o:['في أطراف المدينة','في قلب المدينة (المركز)','خارج المجال الحضري'],a:1},
+  {q:'تسكن الطبقات الغنيّة في مدينة هيوستن:',o:['في الضّواحي البعيدة وسط المساحات الخضراء','في حيّ الأعمال','في الأحياء القريبة من المصانع'],a:0},
+  {q:'يعود تنشيط اقتصاد المدينة الأمريكيّة أساسًا إلى:',o:['ضعف التجهيزات','سرعة التّواصل والخدمات في نظام رأسمالي','قلّة عدد السكّان'],a:1},
+  {q:'تقع مدينة لاغوس في:',o:['شرق إفريقيا على المحيط الهندي','جنوب غرب نيجيريا على خليج غينيا','شمال إفريقيا على البحر المتوسّط'],a:1},
+  {q:'حيّ ماكوكو بلاغوس هو نموذج لـ:',o:['حيّ أعمال حديث','ضاحية غنيّة مسوّرة','حيّ قصديري فوق المياه'],a:2},
+  {q:'من أبرز مشاكل العلاقة بين مكوّنات مدينة لاغوس:',o:['كثرة الطرقات السّريعة','صعوبة التّواصل وتردّي البنية التحتيّة','سرعة الخدمات الإداريّة'],a:1},
+  {q:'تعكس مدينة لاغوس ظاهرة:',o:['تمدّن سريع بدون تنمية','توازن بين النموّ السكّاني والتجهيزات','تراجع عدد سكّان المدن'],a:0}
+];
+const quizEl=document.getElementById('quiz');
+quizEl.innerHTML=qs.map((q,i)=>`
+<div class="p-5 rounded-2xl bg-sand" data-q="${i}">
+  <p class="font-bold mb-3">${i+1}. ${q.q}</p>
+  <div class="grid sm:grid-cols-3 gap-3">
+    ${q.o.map((o,j)=>`<button class="quiz-opt text-right p-3 rounded-xl bg-white border-2 border-ink/10 text-sm" data-i="${j}">${o}</button>`).join('')}
+  </div>
+</div>`).join('');
+quizEl.querySelectorAll('.quiz-opt').forEach(b=>b.addEventListener('click',function(){
+  const p=this.closest('[data-q]');
+  p.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('ring-2','ring-brand-500','bg-brand-50'));
+  this.classList.add('ring-2','ring-brand-500','bg-brand-50');
+  p.dataset.sel=this.dataset.i;
+}));
+document.getElementById('checkBtn').addEventListener('click',()=>{
+  let s=0;
+  quizEl.querySelectorAll('[data-q]').forEach((p,i)=>{
+    const sel=p.dataset.sel;
+    p.querySelectorAll('.quiz-opt').forEach(b=>{
+      b.classList.remove('correct','wrong','ring-2','ring-brand-500','bg-brand-50');
+      if(+b.dataset.i===qs[i].a) b.classList.add('correct');
+      if(sel!==undefined && +sel===+b.dataset.i && +sel!==qs[i].a) b.classList.add('wrong');
+    });
+    if(sel!==undefined && +sel===qs[i].a) s++;
+  });
+  const el=document.getElementById('score');
+  el.textContent=`النتيجة: ${s} / ${qs.length} ${s>=6?'🎉 ممتاز!':s>=4?'👍 لا بأس، راجع الدّرس':'📚 أعد قراءة الدّرس'}`;
+  el.className='font-extrabold text-lg '+(s>=6?'text-emerald-600':s>=4?'text-clay-600':'text-red-600');
+});
+document.getElementById('resetBtn').addEventListener('click',()=>{
+  quizEl.querySelectorAll('[data-q]').forEach(p=>{delete p.dataset.sel;p.querySelectorAll('.quiz-opt').forEach(b=>b.className='quiz-opt text-right p-3 rounded-xl bg-white border-2 border-ink/10 text-sm');});
+  document.getElementById('score').textContent='';
+});
+
+/* ---------- Matching ---------- */
+const pairs=[
+  {m:'حيّ الأعمال',f:'وظيفة ماليّة وإداريّة وتجاريّة'},
+  {m:'الضّواحي الغنيّة',f:'سكن راقٍ وترفيه'},
+  {m:'الحيّ القصديري',f:'مأوى هشّ للنّازحين من الأرياف'},
+  {m:'الميناء والمنطقة الصّناعيّة',f:'إنتاج صناعي وتصدير'},
+  {m:'الطرقات السّريعة',f:'ربط سريع بين مكوّنات المدينة'},
+  {m:'أحياء الأقليّات',f:'سكن اليد العاملة قرب المصانع'}
+];
+const opts=pairs.map(p=>p.f).sort(()=>Math.random()-.5);
+document.getElementById('match').innerHTML=pairs.map((p,i)=>`
+<div class="p-4 rounded-2xl bg-sand" data-m="${i}">
+  <p class="font-bold mb-2">${p.m}</p>
+  <select class="w-full p-3 rounded-xl border-2 border-ink/10 bg-white text-sm">
+    <option value="">ــ اختر الوظيفة ــ</option>
+    ${opts.map(o=>`<option>${o}</option>`).join('')}
+  </select>
+</div>`).join('');
+document.getElementById('matchBtn').addEventListener('click',()=>{
+  let s=0;
+  document.querySelectorAll('#match [data-m]').forEach((d,i)=>{
+    const sel=d.querySelector('select');
+    if(sel.value===pairs[i].f){s++;d.className='p-4 rounded-2xl bg-emerald-50 border-2 border-emerald-400';}
+    else d.className='p-4 rounded-2xl bg-red-50 border-2 border-red-300';
+  });
+  const r=document.getElementById('matchRes');
+  r.textContent=`${s} / ${pairs.length} إجابة صحيحة`;
+  r.className='mr-4 font-bold '+(s===pairs.length?'text-emerald-600':'text-clay-600');
+});
+
+/* ---------- Classify ---------- */
+const items=[
+  {t:'ناطحات سحاب وأبراج زجاجيّة كثيفة',a:'H'},
+  {t:'أحياء قصديريّة فوق المياه',a:'L'},
+  {t:'شبكة طرقات سريعة وحلقيّة',a:'H'},
+  {t:'اختناق مروري وجسور مكتظّة',a:'L'},
+  {t:'ضواحي فيلات ومراكز تجاريّة كبرى',a:'H'},
+  {t:'أكثر من 60٪ من السكّان في أحياء فقيرة',a:'L'},
+  {t:'خدمات إداريّة وماليّة سريعة',a:'H'},
+  {t:'هيمنة القطاع غير المنظّم',a:'L'}
+];
+const cl=document.getElementById('classify');
+cl.innerHTML=items.map((it,i)=>`<button class="cl-item px-4 py-3 rounded-2xl bg-sand border-2 border-ink/10 text-sm font-medium" data-i="${i}" data-v=""><span class="tag inline-block px-2 py-0.5 rounded-md bg-ink/10 text-xs ml-2">؟</span>${it.t}</button>`).join('');
+cl.querySelectorAll('.cl-item').forEach(b=>b.addEventListener('click',function(){
+  const cur=this.dataset.v; const next=cur===''?'H':cur==='H'?'L':'';
+  this.dataset.v=next;
+  const tag=this.querySelector('.tag');
+  tag.textContent=next==='H'?'هيوستن':next==='L'?'لاغوس':'؟';
+  tag.className='tag inline-block px-2 py-0.5 rounded-md text-xs ml-2 '+(next==='H'?'bg-brand-600 text-white':next==='L'?'bg-clay-500 text-white':'bg-ink/10');
+}));
+document.getElementById('classBtn').addEventListener('click',()=>{
+  let s=0;
+  cl.querySelectorAll('.cl-item').forEach((b,i)=>{
+    if(b.dataset.v===items[i].a){s++;b.classList.remove('border-red-400');b.classList.add('border-emerald-500','bg-emerald-50');}
+    else {b.classList.remove('border-emerald-500','bg-emerald-50');b.classList.add('border-red-400');}
+  });
+  const r=document.getElementById('classRes');
+  r.textContent=`${s} / ${items.length} تصنيف صحيح`;
+  r.className='mr-4 font-bold '+(s===items.length?'text-emerald-600':'text-clay-600');
+});
+
+/* ---------- default panels ---------- */
+render('h','cbd'); render('l','cbd');
+</script>
+</body>
+  </html>
